@@ -1,0 +1,17 @@
+ism = "Ayubxon"
+print(ism)
+
+# 2. Foydalanuvchidan ismini so'rang va uni kichik harflar bilan chop eting
+ism = input("Ismingizni kiriting: ")
+print(ism.lower())
+
+# 3. Foydalanuvchidan familiyasini so'rang va uni katta harflar bilan chop eting
+familiya = input("Familiyangizni kiriting: ")
+print(familiya.upper())
+
+# 4. "Python" matnining uzunligini chop eting
+matn = "Python"
+print(len(matn))
+
+# 5. Satrning birinchi belgisini chop eting
+print(matn[0])
