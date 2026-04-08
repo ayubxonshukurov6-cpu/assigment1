@@ -1,22 +1,11 @@
-def get_numbers():
-    return [12, -5, 60, 45, 100, -20, 33, 50, 75, 2]
+people = {}
 
-def process_numbers(numbers):
-    squares = list(map(lambda x: x**2, numbers))
-    even = list(filter(lambda x: x % 2 == 0, numbers))
-    positive = list(filter(lambda x: x > 0, numbers))
-    large = list(filter(lambda x: x > 50, numbers))
-    abs_values = list(map(lambda x: abs(x), numbers))
-    return squares, even, positive, large, abs_values
+for i in range(5):
+    ism = input("Ism kiriting: ")
+    yosh = int(input("Yosh kiriting: "))
+    people[ism] = yosh
 
-def show_result(data):
-    squares, even, positive, large, abs_values = data
-    print("Kvadratlar:", squares)
-    print("Juft sonlar:", even)
-    print("Musbat sonlar:", positive)
-    print("50 dan katta sonlar:", large)
-    print("Manfiy sonlarning moduli:", abs_values)
+sorted_people = sorted(people.items(), key=lambda x: x[1])
 
-# Misol
-numbers = get_numbers()
-show_result(process_numbers(numbers))
+for ism, yosh in sorted_people:
+    print(ism, yosh)
