@@ -1,0 +1,22 @@
+def get_numbers():
+    return [12, -5, 60, 45, 100, -20, 33, 50, 75, 2]
+
+def process_numbers(numbers):
+    squares = list(map(lambda x: x**2, numbers))
+    even = list(filter(lambda x: x % 2 == 0, numbers))
+    positive = list(filter(lambda x: x > 0, numbers))
+    large = list(filter(lambda x: x > 50, numbers))
+    abs_values = list(map(lambda x: abs(x), numbers))
+    return squares, even, positive, large, abs_values
+
+def show_result(data):
+    squares, even, positive, large, abs_values = data
+    print("Kvadratlar:", squares)
+    print("Juft sonlar:", even)
+    print("Musbat sonlar:", positive)
+    print("50 dan katta sonlar:", large)
+    print("Manfiy sonlarning moduli:", abs_values)
+
+# Misol
+numbers = get_numbers()
+show_result(process_numbers(numbers))
