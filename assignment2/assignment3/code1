@@ -1,0 +1,15 @@
+ism = input("Ismingizni kiriting: ")
+yosh = int(input("Yoshingizni kiriting: "))
+telefon = input("Telefon raqamingizni kiriting: ")
+
+if yosh >= 18:
+    print("Siz katta yoshdasiz. Tizimga kirdingiz!")
+    malumot = {
+        "ism": ism,
+        "yosh": yosh,
+        "telefon": telefon
+    }
+    print("Sizning profilingiz yaratildi:")
+    print(malumot)
+else:
+    print("Kechirasiz, siz 18 yoshdan kichiksiz. Tizimga kira olmaysiz.")

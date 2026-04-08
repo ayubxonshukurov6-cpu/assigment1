@@ -1,0 +1,9 @@
+vmatn = input("Matn kiriting (10 ta so'z): ")
+sozlar = matn.split()
+
+takrorlangan = set()
+for soz in sozlar:
+    if sozlar.count(soz) > 1:
+        takrorlangan.add(soz)
+
+print("Takrorlangan so'zlar:", takrorlangan)

@@ -1,0 +1,9 @@
+email = input("Elektron pochtangizni kiriting: ")
+
+if "@" in email and ("." in email):
+    if email.endswith("@gmail.com") or email.endswith("@yahoo.com") or email.endswith("@outlook.com"):
+        print("✅ Email muvaffaqiyatli tasdiqlandi!")
+    else:
+        print("Email noto'g'ri formatda (faqat gmail, yahoo yoki outlook qabul qilinadi).")
+else:
+    print("Noto'g'ri email formati! @ va . belgisi bo'lishi shart.")

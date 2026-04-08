@@ -1,0 +1,58 @@
+
+
+# 1. Bo'sh to'plam yaratib va uni chop eting.
+s = set()
+print(s)
+
+# 2. To'plamga uchta element qo'shing va chop eting.
+s = {1, 2, 3}
+print(s)
+
+# 3. To'plamga yangi element qo'shing va uni qayta chop eting.
+s.add(4)
+print(s)
+
+# 4. Foydalanuvchidan 5 ta son so'rang va ularni to'plamga joylashtirib, chop eting.
+sonlar = {int(input(f"{i+1}-son: ")) for i in range(5)}
+print(sonlar)
+
+# 5. To'plamdagi elementlar sonini chop eting.
+print("Elementlar soni:", len(sonlar))
+
+# 6. To'plamdagi elementlarni for tsikli yordamida chop eting.
+for x in sonlar:
+    print(x)
+
+# 7. To'plamdan bir elementni o'chirib va qayta chop eting.
+if sonlar:
+    sonlar.pop()      # tasodifiy elementni o'chiradi
+    print("O'chirilgandan keyin:", sonlar)
+
+# 8. To'plamni boshqa to'plam bilan birlashtirib, yangi to'plam yaratib va chop eting.
+s1 = {1, 2, 3}
+s2 = {3, 4, 5}
+print("Birlashtirilgan:", s1.union(s2))
+
+# 9. Ikkita to'plamni solishtirib, ularning kesishgan elementlarini chop eting.
+print("Kesishgan:", s1.intersection(s2))
+
+# 10. To'plamdagi elementlarni tasodifiy tarzda olib tashlang va to'plamni qayta chop eting.
+# (pop() allaqachon ishlatilgan)
+
+# 11. To'plamdagi barcha elementlarni alifbo tartibida chop eting.
+mevalar = {"olma", "banan", "apelsin", "uzum"}
+print(sorted(mevalar))
+
+# 12. To'plamni boshqa to'plamdan farqli elementlarni chop eting.
+print("Farqli (s1 - s2):", s1.difference(s2))
+
+# 13. To'plamda mavjud bo'lgan elementlarni for tsikli bilan chop eting.
+for m in mevalar:
+    print(m)
+
+# 14. To'plamdagi barcha elementlarni teskari tartibda chop eting.
+print("Teskari tartib:", sorted(mevalar, reverse=True))
+
+# 15. To'plamni tozalang va bo'sh to'plamni chop eting.
+mevalar.clear()
+print("Tozalandi:", mevalar)

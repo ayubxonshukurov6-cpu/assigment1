@@ -1,0 +1,40 @@
+lugat = {}
+print(lugat)
+
+# 2. Lug'atga ism va yosh qo'shing, keyin lug'atni chop eting.
+talaba = {"ism": "Ayubxon", "yosh": 20}
+print(talaba)
+
+# 3. Foydalanuvchidan ismi va familiyasini so'rang va lug'atga joylashtiring.
+ism = input("Ismingiz: ")
+fam = input("Familiyangiz: ")
+talaba = {"ism": ism, "familiya": fam}
+print(talaba)
+
+# 4. Lug'atdan biror qiymatni kalit orqali chop eting (masalan, ismini chop eting).
+print(talaba["ism"])
+
+# 5. Lug'atdagi barcha kalitlarni chop eting.
+print(list(talaba.keys()))
+
+# 6. Lug'atga yangi element qo'shing va uni chop eting.
+talaba["yosh"] = 21
+print(talaba)
+
+# 7. Lug'atdagi qiymatni o'zgartiring (masalan, yoshni yangilang) va qayta chop eting.
+talaba["yosh"] = 22
+print(talaba)
+
+# 8. Lug'atdagi barcha elementlarni for tsikli yordamida chop eting.
+for kalit, qiymat in talaba.items():
+    print(f"{kalit}: {qiymat}")
+
+# 9. Lug'atda kalit mavjudligini tekshiring va natijani chop eting.
+print("ism" in talaba)
+
+# 10. Lug'atdagi barcha kalit-qiymat juftliklarini chop eting.
+print(talaba.items())
+
+# 11. Lug'atdan elementni o'chirib tashlang va qayta chop eting.
+del talaba["yosh"]
+print(talaba)

@@ -1,0 +1,8 @@
+til = input("Qaysi dasturlash tilini bilasiz? (Python, JavaScript, Web dasturchi): ").lower()
+
+if "python" in til:
+    print("Siz Python bilasiz → 'Siz dasturchisiz' deb xabar bering.")
+elif "javascript" in til:
+    print("Siz JavaScript bilasiz → 'Web dasturchi' ekansiz.")
+else:
+    print("Siz dasturchi emassiz.")

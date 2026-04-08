@@ -1,0 +1,12 @@
+
+sonlar = [int(input(f"{i+1}-son: ")) for i in range(10)]
+
+juft = [x for x in sonlar if x % 2 == 0]
+toq = [x for x in sonlar if x % 2 != 0]
+
+print("Juft sonlar:", juft)
+print("Toq sonlar:", toq)
+
+# Manfiy sonlarni 0 ga aylantirish
+yangilangan = [0 if x < 0 else x for x in sonlar]
+print("Manfiy sonlar 0 ga aylantirilgan:", yangilangan)

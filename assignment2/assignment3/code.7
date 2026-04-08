@@ -1,0 +1,8 @@
+sonlar = []
+for i in range(10):
+    son = int(input(f"{i+1}-sonni kiriting: "))
+    sonlar.append(son)
+
+# Takrorlanmas qilish (set orqali)
+takrorlanmas = list(set(sonlar))
+print("Takrorlanmas raqamlar:", sorted(takrorlanmas))

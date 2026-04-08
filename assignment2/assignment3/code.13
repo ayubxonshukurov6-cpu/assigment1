@@ -1,0 +1,15 @@
+mahsulotlar = {}
+n = int(input("Nechta mahsulot kiritasiz? "))
+
+for i in range(n):
+    nom = input(f"{i+1}-mahsulot nomi: ")
+    narx = int(input(f"{nom} narxi: "))
+    mahsulotlar[nom] = narx
+
+jami = sum(mahsulotlar.values())
+print(f"Jami narx: {jami} so'm")
+
+if jami > 500000:
+    print("Katta xarid! Chegirma imkoniyati bor.")
+else:
+    print("Oddiy xarid.")

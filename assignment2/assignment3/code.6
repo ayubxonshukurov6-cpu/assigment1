@@ -1,0 +1,19 @@
+mahsulotlar = {}
+n = int(input("Nechta mahsulot kiritmoqchisiz? "))
+
+for i in range(n):
+    nom = input(f"{i+1}-mahsulot nomi: ")
+    narx = int(input(f"{nom} ning narxi (so'm): "))
+    mahsulotlar[nom] = narx
+
+# Umumiy narx hisoblash
+umumiy = sum(mahsulotlar.values())
+print(f"\nJami narx: {umumiy} so'm")
+
+# Chegirma
+if umumiy > 1000000:
+    chegirma = umumiy * 0.10
+    print(f"10% chegirma: {chegirma} so'm")
+    print(f"To'lov miqdori: {umumiy - chegirma} so'm")
+else:
+    print("Chegirma yo'q.")

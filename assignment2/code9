@@ -1,0 +1,59 @@
+# 2. List (Ro'yxatlar) – 1 dan 15 gacha (takror emas, faqat eslatma uchun to'liq)
+
+# 1. Bo'sh ro'yxat yaratib va uni chop eting.
+royxat = []
+print(royxat)
+
+# 2. Ro'yxatga uchta sevimli mevangizni qo'shing va chop eting.
+mevalar = ["Olma", "Banan", "Apelsin"]
+print(mevalar)
+
+# 3. Ro'yxatdan birinchi elementni chop eting.
+print(mevalar[0])
+
+# 4. Ro'yxatga yangi element qo'shing va ro'yxatni qayta chop eting.
+mevalar.append("Uzum")
+print(mevalar)
+
+# 5. Foydalanuvchidan 5 ta son so'rang va ularni ro'yxatga joylashtirib, chop eting.
+sonlar = [int(input(f"{i+1}-son: ")) for i in range(5)]
+print(sonlar)
+
+# 6. Ro'yxatdagi oxirgi elementni chop eting.
+print(sonlar[-1])
+
+# 7. Ro'yxatdagi ikkinchi elementni o'zgartirib va yangilangan ro'yxatni chop eting.
+sonlar[1] = 999
+print(sonlar)
+
+# 8. Ro'yxatdagi elementlarni alifbo tartibida chop eting.
+mevalar.sort()
+print(mevalar)
+
+# 9. Foydalanuvchidan 3 ta ism so'rang va ularni ro'yxatga qo'shing, so'ng chop eting.
+ismlar = [input(f"{i+1}-ism: ") for i in range(3)]
+print(ismlar)
+
+# 10. Ro'yxatdagi barcha elementlarni for tsikli yordamida chop eting.
+for ism in ismlar:
+    print(ism)
+
+# 11. Ro'yxatga yangi elementlar qo'shing va nechta element borligini aniqlang.
+ismlar.extend(["Ali", "Vali"])
+print("Elementlar soni:", len(ismlar))
+
+# 12. Ro'yxatdan elementni olib tashlang va ro'yxatni qayta chop eting.
+ismlar.remove("Ali")
+print(ismlar)
+
+# 13. Ro'yxatni teskari tartibda chop eting.
+print(ismlar[::-1])
+
+# 14. Ro'yxatni tozalang va bo'sh ro'yxatni chop eting.
+ismlar.clear()
+print(ismlar)
+
+# 15. Ikkita ro'yxat yaratib va ularni birlashtirib, bitta ro'yxatga aylantiring.
+r1 = [1, 2, 3]
+r2 = [4, 5, 6]
+print(r1 + r2)

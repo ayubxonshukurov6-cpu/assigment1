@@ -1,0 +1,10 @@
+odamlar = []
+for i in range(5):
+    ism = input(f"{i+1}-odamning ismini kiriting: ")
+    yosh = int(input(f"{ism} ning yoshini kiriting: "))
+    odamlar.append({"ism": ism, "yosh": yosh})
+
+tartiblangan = sorted(odamlar, key=lambda x: x["yosh"])
+print("\nYosh bo'yicha tartiblangan ro'yxat:")
+for odam in tartiblangan:
+    print(f"{odam['ism']} - {odam['yosh']} yosh")

@@ -1,0 +1,13 @@
+xarajatlar = []
+for i in range(5):
+    nom = input(f"{i+1}-xarajat nomi: ")
+    narx = int(input(f"{nom} narxi: "))
+    xarajatlar.append({"nom": nom, "narx": narx})
+
+jami = sum(x["narx"] for x in xarajatlar)
+print(f"\nJami xarajat: {jami} so'm")
+
+if jami > 1000000:
+    print("Byudjetdan oshib ketdi! Qo'shimcha mablag' kerak.")
+else:
+    print("Byudjet ichida. Yaxshi reja!")

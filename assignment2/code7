@@ -1,0 +1,63 @@
+d = {}
+print(d)
+
+# 2. Lug'atga ism va yosh qo'shing, keyin lug'atni chop eting.
+d = {"ism": "Ayubxon", "yosh": 20}
+print(d)
+
+# 3. Foydalanuvchidan ismi va familiyasini so'rang va lug'atga joylashtiring.
+ism = input("Ismingiz: ")
+fam = input("Familiyangiz: ")
+d = {"ism": ism, "familiya": fam}
+print(d)
+
+# 4. Lug'atdan biror qiymatni kalit orqali chop eting.
+print("Ism:", d["ism"])
+
+# 5. Lug'atdagi barcha kalitlarni chop eting.
+print("Kalitlar:", list(d.keys()))
+
+# 6. Lug'atga yangi element qo'shing va uni chop eting.
+d["yosh"] = 21
+print(d)
+
+# 7. Lug'atdagi qiymatni o'zgartiring (masalan, yoshni yangilang) va qayta chop eting.
+d["yosh"] = 22
+print(d)
+
+# 8. Lug'atdagi barcha elementlarni for tsikli yordamida chop eting.
+for key, value in d.items():
+    print(f"{key} -> {value}")
+
+# 9. Lug'atda kalit mavjudligini tekshiring va natijani chop eting.
+print("'yosh' mavjudmi?", "yosh" in d)
+
+# 10. Lug'atdagi barcha kalit-qiymat juftliklarini chop eting.
+print(d.items())
+
+# 11. Lug'atdan elementni o'chirib tashlang va qayta chop eting.
+if "yosh" in d:
+    del d["yosh"]
+print(d)
+
+# 12. Foydalanuvchidan 3 ta kalit-qiymat juftligi kiritib so'rang va lug'atga joylashtiring.
+d2 = {}
+for i in range(3):
+    kalit = input(f"{i+1}-kalit: ")
+    qiymat = input(f"{i+1}-qiymat: ")
+    d2[kalit] = qiymat
+print(d2)
+
+# 13. Lug'atdagi qiymatlarni for tsikli yordamida chop eting.
+for value in d2.values():
+    print(value)
+
+# 14. Lug'atdagi qiymatlarni for tsikli yordamida chop eting (agar qiymatlar raqam bo'lsa).
+# Misol:
+ballar = {"math": 85, "physics": 90, "english": 78}
+for v in ballar.values():
+    print(v)
+
+# 15. Lug'atni bo'shatib, bo'sh lug'atni chop eting.
+d2.clear()
+print("Bo'sh lug'at:", d2)

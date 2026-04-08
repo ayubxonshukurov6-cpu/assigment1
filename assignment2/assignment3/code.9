@@ -1,0 +1,17 @@
+talabalar = []
+for i in range(5):
+    ism = input(f"{i+1}-talaba ismi: ")
+    baho = int(input(f"{ism} ning bahosi: "))
+    talabalar.append({"ism": ism, "baho": baho})
+
+print("\nBaholar tahlili:")
+for t in talabalar:
+    if t["baho"] >= 90:
+        natija = "Alo baho"
+    elif t["baho"] >= 80:
+        natija = "Yaxshi baho"
+    elif t["baho"] >= 70:
+        natija = "Qoniqarli"
+    else:
+        natija = "Yomon baho"
+    print(f"{t['ism']}: {t['baho']} → {natija}")
