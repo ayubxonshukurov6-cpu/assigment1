@@ -1,0 +1,35 @@
+def show_menu():
+    print("\n1. Pul qo‘shish\n2. Pul yechish\n3. Balansni ko‘rish\n4. Pul o‘tkazish\n5. Chiqish")
+def deposit(balance, amount):
+    if amount > 0:
+        balance += amount
+        print(f"{amount} so‘m qo‘shildi. Yangi balans: {balance}")
+    else:
+        print("Manfiy summa kiritish mumkin emas.")
+    return balance
+def withdraw(balance, amount):
+    if amount <= 0:
+        print("Manfiy yoki nol summa kiritish mumkin emas.")
+    elif amount > balance:
+        print("Balans yetarli emas.")
+    else:
+        balance -= amount
+        print(f"{amount} so‘m yechildi. Yangi balans: {balance}")
+    return balance
+def check_balance(balance):
+    print(f"Hozirgi balans: {balance} so‘m")
+def transfer(balance, amount):
+    if amount <= 0:
+        print("Manfiy summa kiritish mumkin emas.")
+    elif amount > balance:
+        print("Balans yetarli emas.")
+    else:
+        balance -= amount
+        print(f"{amount} so‘m o‘tkazildi. Yangi balans: {balance}")
+    return balance
+balance = 100000
+show_menu()
+balance = deposit(balance, 20000)
+balance = withdraw(balance, 50000)
+check_balance(balance)
+balance = transfer(balance, 10000)

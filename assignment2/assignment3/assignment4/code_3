@@ -1,0 +1,17 @@
+def clean_words(words):
+    return list(filter(lambda x: x!= "", words))
+def upper_words(words):
+    return list(map(lambda x: x.upper(), words))
+def long_words(words):
+    return list(filter(lambda x: len(x) > 5, words))
+def vowel_words(words):
+    vowels = "AEIOUaeiou"
+    return list(filter(lambda x: x[0] in vowels, words))
+words = ["salom", "", "dunyo", "informatika", "olma", "banana", "kitob", "universitet"]
+cleaned = clean_words(words)
+print("Tozalangan:", cleaned)
+print("Katta harf:", upper_words(cleaned))
+print("Uzun so‘zlar:", long_words(cleaned))
+print("Unli bilan boshlanuvchi:", vowel_words(cleaned))
+for w in cleaned:
+    print(f"So‘z: {w}, Uzunligi: {len(w)}, Teskari: {w[::-1]}")

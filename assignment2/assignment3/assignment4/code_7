@@ -1,0 +1,22 @@
+def show_rooms(room_prices):
+    print("Xonalar narxlari:")
+    for room, price in room_prices.items():
+        print(f"{room}: {price} so‘m/kun")
+def calculate_cost(room_type, days, room_prices):
+    if room_type not in room_prices:
+        print("Noto‘g‘ri xona turi!")
+        return 0
+    return room_prices[room_type] * days
+def apply_discount(total, days):
+    if days > 10:
+        return total * 0.85
+    elif days > 5:
+        return total * 0.9
+    return total
+def final_report(room_type, days, room_prices):
+    total = calculate_cost(room_type, days, room_prices)
+    discounted = apply_discount(total, days)
+    print(f"\nXona turi: {room_type}\nKunlar: {days}\nUmumiy narx: {total}\nChegirmadan keyin: {discounted}")
+room_prices = {"Oddiy": 100000, "Luks": 200000, "VIP": 300000}
+show_rooms(room_prices)
+final_report("Luks", 7, room_prices)

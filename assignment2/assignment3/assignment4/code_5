@@ -1,0 +1,38 @@
+def show_books(books):
+    print("Kutubxonadagi kitoblar:")
+    for name, count in books.items():
+        print(f"{name} - {count} dona")
+def search_book(books, name):
+    if name in books:
+        print(f"{name} mavjud ({books[name]} dona).")
+    else:
+        print(f"{name} hozir mavjud emas.")
+def borrow_book(books, name):
+    if name in books and books[name] > 0:
+        books[name] -= 1
+        print(f"{name} olindi. Qolgan: {books[name]}")
+    else:
+        print("Kitob mavjud emas yoki tugagan.")
+def return_book(books, name):
+    if name in books:
+        books[name] += 1
+        print(f"{name} qaytarildi. Endi {books[name]} dona.")
+    else:
+        books[name] = 1
+        print(f"{name} yangi kitob sifatida qo‘shildi.")
+def add_book(books, name):
+    books[name] = books.get(name, 0) + 1
+    print(f"{name} qo‘shildi. Endi {books[name]} dona.")
+def remove_book(books, name):
+    if name in books:
+        del books[name]
+        print(f"{name} o‘chirildi.")
+    else:
+        print("Kitob topilmadi.")
+books = {"Python": 3, "Matematika": 2, "Fizika": 1}
+show_books(books)
+search_book(books, "Python")
+borrow_book(books, "Python")
+return_book(books, "Python")
+add_book(books, "Ingliz tili")
+remove_book(books, "Fizika")

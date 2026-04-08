@@ -1,0 +1,15 @@
+def combine_products(products, prices):
+    return list(zip(products, prices))
+def expensive_products(data):
+    return list(filter(lambda x: x[1] > 20000, data))
+def apply_discount(prices):
+    return list(map(lambda x: x * 0.9, prices))
+def find_most_expensive(data):
+    return max(data, key=lambda x: x[1])
+products = ["Telefon", "Kompyuter", "Soat", "Kitob"]
+prices = [25000, 45000, 15000, 10000]
+data = combine_products(products, prices)
+print("Birlashgan:", data)
+print("Qimmatlar:", expensive_products(data))
+print("Chegirmali narxlar:", apply_discount(prices))
+print("Eng qimmat:", find_most_expensive(data))

@@ -1,0 +1,28 @@
+def input_students():
+    names = ["Ali", "Vali", "Gulbahor", "Dilshod"]
+    scores = [85, 72, 60, 95]
+    return names, scores
+def get_grade_level(score):
+    if score >= 90:
+        return "A"
+    elif score >= 75:
+        return "B"
+    elif score >= 60:
+        return "C"
+    else:
+        return "F"
+def create_report(names, scores):
+    for name, score in zip(names, scores):
+        grade = get_grade_level(score)
+        print(f"{name}: {score} ball → {grade}")
+def top_student(names, scores):
+    max_score = max(scores)
+    index = scores.index(max_score)
+    print(f"Eng yuqori ball olgan: {names[index]} ({max_score} ball)")
+def count_A_students(scores):
+    count = len(list(filter(lambda x: x >= 90, scores)))
+    print(f"A baho olganlar soni: {count}")
+names, scores = input_students()
+create_report(names, scores)
+top_student(names, scores)
+count_A_students(scores)
