@@ -1,120 +1,94 @@
-class Book:
-    def __init__(self, title, author):
-        self.title = title
-        self.author = author
-        self.available = True
-
-    def get_title(self):
-        return self.title
-
-    def get_author(self):
-        return self.author
-
-    def get_info(self):
-        return f"Kitob: {self.title} | Muallif: {self.author} | Holati: {'Mavjud' if self.available else 'Olingan'}"
-
-    def is_available(self):
-        return self.available
 
 
-class Student:
-    def __init__(self, fullname):
+class Person:
+    def __init__(self, fullname, age, person_id):
         self.fullname = fullname
-        self.borrowed_books = []
+        self.age = age
+        self.person_id = person_id
 
     def get_fullname(self):
         return self.fullname
 
-    def borrow_book(self, book):
-        if book.is_available():
-            book.available = False
-            self.borrowed_books.append(book)
-            print(f"{self.fullname} kitobni oldi: {book.get_title()}")
-        else:
-            print(f"Kechirasiz, '{book.get_title()}' kitobi hozirda mavjud emas.")
-
-    def return_book(self, book):
-        if book in self.borrowed_books:
-            book.available = True
-            self.borrowed_books.remove(book)
-            print(f"{self.fullname} kitobni qaytardi: {book.get_title()}")
-        else:
-            print("Bu kitob sizda emas.")
-
-    def get_borrowed_books(self):
-        return [book.get_title() for book in self.borrowed_books]
-
-
-class Teacher:
-    def __init__(self, fullname):
-        self.fullname = fullname
-        self.borrowed_books = []
-
-    def get_fullname(self):
-        return self.fullname
-
-    def borrow_book(self, book):
-        if book.is_available():
-            book.available = False
-            self.borrowed_books.append(book)
-            print(f"{self.fullname} kitobni oldi: {book.get_title()}")
-        else:
-            print(f"Kechirasiz, '{book.get_title()}' kitobi hozirda mavjud emas.")
-
-    def return_book(self, book):
-        if book in self.borrowed_books:
-            book.available = True
-            self.borrowed_books.remove(book)
-            print(f"{self.fullname} kitobni qaytardi: {book.get_title()}")
-        else:
-            print("Bu kitob sizda emas.")
+    def get_age(self, current_year):
+        return current_year - self.age   # Tug'ilgan yil berilgan
 
     def get_info(self):
-        return f"O'qituvchi: {self.fullname}"
+        return f"Ism: {self.fullname}, Yosh: {self.get_age(2026)}, ID: {self.person_id}"
+
+    def get_ID(self):
+        return self.person_id
 
 
-class Library:
-    def __init__(self):
-        self.books = []
-        self.users = []  # Student va Teacher larni saqlash uchun
+class Student(Person):
+    def __init__(self, fullname, age, student_id, group):
+        super().__init__(fullname, age, student_id)
+        self.group = group
+        self.courses = []          # talaba o'qiyotgan kurslar
 
-    def add_book(self, book):
-        self.books.append(book)
-        print(f"Kitob qo'shildi: {book.get_title()}")
+    def get_group(self):
+        return self.group
 
-    def add_user(self, user):
-        self.users.append(user)
-        print(f"Foydalanuvchi qo'shildi: {user.get_fullname()}")
+    def enroll_course(self, course):
+        if course not in self.courses:
+            self.courses.append(course)
+            print(f"{self.fullname} kursga yozildi: {course}")
+        else:
+            print(f"{self.fullname} bu kursga allaqachon yozilgan.")
 
-    def show_available_books(self):
-        print("\nMavjud kitoblar:")
-        for book in self.books:
-            if book.is_available():
-                print(f" - {book.get_title()} ({book.get_author()})")
+    def show_courses(self):
+        print(f"\n{self.fullname} ning kurslari:")
+        for c in self.courses:
+            print(f" - {c}")
 
-    def show_all_users(self):
-        print("\nBarcha foydalanuvchilar:")
-        for user in self.users:
-            print(f" - {user.get_fullname()}")
+    def get_info(self):
+        return f"Talaba: {self.fullname} | Guruh: {self.group} | Kurslar: {len(self.courses)} ta"
 
 
-# Misol ishlatish
-if __name__ =="__main__":
-    lib = Library()
+class Teacher(Person):
+    def __init__(self, fullname, age, teacher_id, subject):
+        super().__init__(fullname, age, teacher_id)
+        self.subject = subject
+        self.courses = []          # o'qituvchi o'qitadigan kurslar
 
-    # Kitoblar qo'shish
-    book1 = Book("Python Programming", "Mark Lutz")
-    book2 = Book("O'tgan kunlar", "Abdulla Qodiriy")
-    book3 = Book("Atomic Habits", "James Clear")
-    lib.add_book(book1)
-    lib.add_book(book2)
-    lib.add_book(book3)
-    student1 = Student("Ayyubxon Shukurov")
-    teacher1 = Teacher("Shukrona teacher")
-    lib.add_user(student1)
-    lib.add_user(teacher1)
-    student1.borrow_book(book1)
-    teacher1.borrow_book(book2)
-    lib.show_available_books()
-    student1.return_book(book1)
-    lib.show_available_books()
+    def assign_course(self, course):
+        if course not in self.courses:
+            self.courses.append(course)
+            print(f"{self.fullname} ga kurs tayinlandi: {course}")
+        else:
+            print("Bu kurs allaqachon tayinlangan.")
+
+    def show_courses(self):
+        print(f"\n{self.fullname} o'qitadigan kurslar:")
+        for c in self.courses:
+            print(f" - {c}")
+
+    def get_subject(self):
+        return self.subject
+
+    def get_info(self):
+        return f"O'qituvchi: {self.fullname} | Fan: {self.subject}"
+
+if __name__ == "__main__":
+    current_year = 2026
+
+    # Obyektlar yaratish
+    student1 = Student("Ayubxon Shukurov", 2005, "U23001", "CS-23")
+    teacher1 = Teacher("Dilorom Xolmatova", 1985, "T001", "Matematika")
+
+    # Kurslarga yozish va tayinlash
+    student1.enroll_course("Python OOP")
+    student1.enroll_course("Data Structures")
+    student1.enroll_course("Database Systems")
+
+    teacher1.assign_course("Python OOP")
+    teacher1.assign_course("Advanced Programming")
+
+    # Natijalarni chiqarish
+    print(student1.get_info())
+    print(teacher1.get_info())
+    student1.show_courses()
+    teacher1.show_courses()
+
+    # Qo'shimcha metodlarni sinash
+    print(f"\nTalaba yoshi: {student1.get_age(current_year)}")
+    print(f"O'qituvchi fani: {teacher1.get_subject()}")
