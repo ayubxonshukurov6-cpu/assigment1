@@ -1,0 +1,91 @@
+class Person:
+    def __init__(self, fullname, age, person_id):
+        self.fullname = fullname
+        self.age = age
+        self.person_id = person_id
+
+    def get_fullname(self):
+        return self.fullname
+
+    def get_age(self, current_year):
+        return current_year - self.age  # Tug'ilgan yil berilgan deb hisoblaymiz
+
+    def get_info(self):
+        return f"Ism: {self.fullname}, Yosh: {self.get_age(2026)}, ID: {self.person_id}"
+
+    def get_ID(self):
+        return self.person_id
+
+
+class Student(Person):
+    def __init__(self, fullname, age, student_id, group):
+        super().__init__(fullname, age, student_id)
+        self.group = group
+        self.courses = []
+
+    def get_group(self):
+        return self.group
+
+    def enroll_course(self, course):
+        if course not in self.courses:
+            self.courses.append(course)
+            print(f"{self.fullname} kursga yozildi: {course}")
+        else:
+            print("Bu kursga allaqachon yozilgansiz.")
+
+    def show_courses(self):
+        print(f"\n{self.fullname} ning kurslari:")
+        for course in self.courses:
+            print(f" - {course}")
+
+    def get_info(self):
+        return f"Talaba: {self.fullname}, Guruh: {self.group}, Kurslar soni: {len(self.courses)}"
+
+
+class Teacher(Person):
+    def __init__(self, fullname, age, teacher_id, subject):
+        super().__init__(fullname, age, teacher_id)
+        self.subject = subject
+        self.courses = []
+
+    def assign_course(self, course):
+        if course not in self.courses:
+            self.courses.append(course)
+            print(f"{self.fullname} ga kurs tayinlandi: {course}")
+        else:
+            print("Bu kurs allaqachon tayinlangan.")
+
+    def show_courses(self):
+        print(f"\n{self.fullname} o'qitadigan kurslar:")
+        for course in self.courses:
+            print(f" - {course}")
+
+    def get_subject(self):
+        return self.subject
+
+    def get_info(self):
+        return f"O'qituvchi: {self.fullname}, Fan: {self.subject}"
+
+
+# Misol ishlatish
+if __name__ == "__main__":
+    # 2026 yil deb hisoblaymiz
+    current_year = 2026
+
+    student1 = Student("Ayubxon Shukurov", 2005, "U23001", "CS-23")
+    teacher1 = Teacher("Shukrona teacher", 1985, "T001", "Matematika")
+
+    # Kurslarga yozish
+    student1.enroll_course("Python OOP")
+    student1.enroll_course("Data Structures")
+    student1.enroll_course("Database")
+
+    teacher1.assign_course("Python OOP")
+    teacher1.assign_course("Advanced Programming")
+
+    # Ma'lumotlarni chiqarish
+    print(student1.get_info())
+    print(teacher1.get_info())
+
+    student1.show_courses()
+    teacher1.show_courses()

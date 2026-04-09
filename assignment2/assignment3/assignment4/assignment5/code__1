@@ -1,0 +1,120 @@
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+        self.available = True
+
+    def get_title(self):
+        return self.title
+
+    def get_author(self):
+        return self.author
+
+    def get_info(self):
+        return f"Kitob: {self.title} | Muallif: {self.author} | Holati: {'Mavjud' if self.available else 'Olingan'}"
+
+    def is_available(self):
+        return self.available
+
+
+class Student:
+    def __init__(self, fullname):
+        self.fullname = fullname
+        self.borrowed_books = []
+
+    def get_fullname(self):
+        return self.fullname
+
+    def borrow_book(self, book):
+        if book.is_available():
+            book.available = False
+            self.borrowed_books.append(book)
+            print(f"{self.fullname} kitobni oldi: {book.get_title()}")
+        else:
+            print(f"Kechirasiz, '{book.get_title()}' kitobi hozirda mavjud emas.")
+
+    def return_book(self, book):
+        if book in self.borrowed_books:
+            book.available = True
+            self.borrowed_books.remove(book)
+            print(f"{self.fullname} kitobni qaytardi: {book.get_title()}")
+        else:
+            print("Bu kitob sizda emas.")
+
+    def get_borrowed_books(self):
+        return [book.get_title() for book in self.borrowed_books]
+
+
+class Teacher:
+    def __init__(self, fullname):
+        self.fullname = fullname
+        self.borrowed_books = []
+
+    def get_fullname(self):
+        return self.fullname
+
+    def borrow_book(self, book):
+        if book.is_available():
+            book.available = False
+            self.borrowed_books.append(book)
+            print(f"{self.fullname} kitobni oldi: {book.get_title()}")
+        else:
+            print(f"Kechirasiz, '{book.get_title()}' kitobi hozirda mavjud emas.")
+
+    def return_book(self, book):
+        if book in self.borrowed_books:
+            book.available = True
+            self.borrowed_books.remove(book)
+            print(f"{self.fullname} kitobni qaytardi: {book.get_title()}")
+        else:
+            print("Bu kitob sizda emas.")
+
+    def get_info(self):
+        return f"O'qituvchi: {self.fullname}"
+
+
+class Library:
+    def __init__(self):
+        self.books = []
+        self.users = []  # Student va Teacher larni saqlash uchun
+
+    def add_book(self, book):
+        self.books.append(book)
+        print(f"Kitob qo'shildi: {book.get_title()}")
+
+    def add_user(self, user):
+        self.users.append(user)
+        print(f"Foydalanuvchi qo'shildi: {user.get_fullname()}")
+
+    def show_available_books(self):
+        print("\nMavjud kitoblar:")
+        for book in self.books:
+            if book.is_available():
+                print(f" - {book.get_title()} ({book.get_author()})")
+
+    def show_all_users(self):
+        print("\nBarcha foydalanuvchilar:")
+        for user in self.users:
+            print(f" - {user.get_fullname()}")
+
+
+# Misol ishlatish
+if __name__ =="__main__":
+    lib = Library()
+
+    # Kitoblar qo'shish
+    book1 = Book("Python Programming", "Mark Lutz")
+    book2 = Book("O'tgan kunlar", "Abdulla Qodiriy")
+    book3 = Book("Atomic Habits", "James Clear")
+    lib.add_book(book1)
+    lib.add_book(book2)
+    lib.add_book(book3)
+    student1 = Student("Ayyubxon Shukurov")
+    teacher1 = Teacher("Shukrona teacher")
+    lib.add_user(student1)
+    lib.add_user(teacher1)
+    student1.borrow_book(book1)
+    teacher1.borrow_book(book2)
+    lib.show_available_books()
+    student1.return_book(book1)
+    lib.show_available_books()
